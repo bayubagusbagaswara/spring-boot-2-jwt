@@ -15,7 +15,13 @@ public class SecurityConfig {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .httpBasic();
+                // httpBasic mewajibkan untuk menginputkan username dan password
+                // username nya adalah user, sedangkan password nya berisi password dari spring security
+                .httpBasic()
+                .and()
+                // formLogin adalah form yang digunakan untuk tampilan login
+                .formLogin()
+        ;
 
         return http.build();
     }
